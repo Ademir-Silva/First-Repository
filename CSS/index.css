@@ -1,0 +1,141 @@
+:root{
+    --background-page:rgb(17, 16, 16);
+    --color-text: rgb(192, 91, 45);
+}
+
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+html{
+    font-family: 'Roboto Condensed', sans-serif;
+    height: 100%;
+}
+
+body{
+    background: var(--background-page);
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+form{
+    background: rgb(24, 23, 23);
+
+    width: 100%;
+    max-width: 400px;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 20px 40px;
+    margin: 70px auto;
+    border-radius: 5px;
+}
+
+form h1{
+    margin: 20px;
+    letter-spacing: .1em;
+}
+
+div.input{
+    position: relative;
+    margin-bottom: 24px;
+}
+
+input, button{
+
+    /* Reset appearance */
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+
+    width: 100%;
+    padding: 10px 0;
+
+    border: none;
+    border-bottom: 2px solid var(--color-text);
+    background: transparent;
+
+    color: white;
+    font-size: 13pt;
+
+    outline: none;
+}
+
+button{
+    margin-top: 10px;
+
+    background: rgb(207, 88, 40);
+    border-radius: 5px;
+}
+
+h1{
+    color: var(--color-text);
+    text-align: center;
+}
+
+/* Inputs */
+
+input ~ label{
+    position: absolute;
+    left: 0;
+    top: 13px;
+
+    color: rgba(196, 185, 185, 0.514);
+
+    transition: .4s;
+}
+
+input:focus ~ label,
+input:valid ~label {
+    transform: translateY(-25px);
+    font-size: .9em;
+}
+
+.input span.error{
+    display: flex;
+    padding: 0;
+
+    background: rgb(179, 12, 12);
+}
+
+.input span.error.active{
+    border: 1px solid red;
+    padding: .1em;
+}
+
+
+/* Animations */
+
+form{
+    animation: fade;
+    animation-duration: .5s;
+
+    overflow: hidden;
+}
+
+form input{
+    animation: slap;
+    animation-duration: .8s;
+}
+
+@keyframes fade{
+    from{
+        opacity: 0;
+        transform: scale(.8);
+    }to{
+        opacity: 1;
+        transform: scale(1);
+
+    }
+}
+
+@keyframes slap{
+    from{
+        opacity: 0;
+        transform: translateX(-40%);
+    }to{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
